@@ -1,0 +1,684 @@
+version: "3.1"
+#config:
+#  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- greet
+- deny
+- request_names
+- goodbye
+- affirm
+- mood_great
+- mood_unhappy
+- bot_challenge
+- daily_wellness
+- health_form
+- sleep_quality
+# - user
+# - admin
+# - stress_frequency
+# - sleep_frequency
+# - inform
+
+
+# entities:
+# - stress_question
+# - sleep_question
+# - stress_level
+
+slots:
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: first_name
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: last_name
+  # user_age:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #         - active_loop: new_user
+  #           requested_slot: user_age
+  previous_conditions:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_info
+            requested_slot: previous_conditions
+  confirm_exercise:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_info
+            requested_slot: confirm_exercises
+  stress_question_01:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_info
+            requested_slot: stress_question_01
+  stress_question_02:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_info
+            requested_slot: stress_question_02
+  stress_question_03:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_info
+            requested_slot: stress_question_03
+  stress_question_04:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: health_info
+            requested_slot: stress_question_04
+  sleep_question_1:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_1
+  sleep_question_2:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_2
+  sleep_question_3:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_3
+  sleep_question_4:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_4
+  sleep_question_5:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_5
+  sleep_question_6:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_6
+  sleep_question_7:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: sleep_questionnaire
+            requested_slot: sleep_question_7
+  sleep:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: wellness_check
+            requested_slot: sleep
+  water:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: wellness_check
+            requested_slot: water
+  stress:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: wellness_check
+            requested_slot: stress
+  exercise:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: wellness_check
+            requested_slot: exercise
+  goals:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: wellness_check
+            requested_slot: goals
+  # confirm_excerise:
+  #   type: bool
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_intent
+  #       intent: affirm
+  #       value: true
+  #       conditions:
+  #       - active_loop: health_info
+  #         requested_slot: confirm_excercise
+  #     - type: from_intent
+  #       intent: deny
+  #       value: false
+  #       conditions:
+  #       - active_loop: health_info
+  #         requested_slot: confirm_excercise
+  # stress_question_01:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Almost Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: stress_question
+  #       conditions:
+  #       - active_loop: health_info
+  #         requested_slot: stress_question_01
+  # stress_question_02:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Almost Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: stress_question
+  #       conditions:
+  #       - active_loop: health_info
+  #         requested_slot: stress_question_02
+  # stress_question_03:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Almost Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: stress_question
+  #       conditions:
+  #       - active_loop: health_info
+  #         requested_slot: stress_question_03
+  # stress_question_04:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Almost Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: stress_question
+  #       conditions:
+  #       - active_loop: health_info
+  #         requested_slot: stress_question_04
+  # sleep_question_1:
+  #   type: categorical
+  #   values:
+  #     - Very Good
+  #     - Fairly Good
+  #     - Fairly Bad
+  #     - Very bad
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: sleep_question
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_1
+  # sleep_question_3:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: sleep_question
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_3
+  # sleep_question_4:
+  #   type: float
+  #   min_value: 0
+  #   max_value: 24
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_4
+  # sleep_question_5:
+  #   type: float
+  #   min_value: 0
+  #   max_value: 24
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_5
+  # sleep_question_6:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: sleep_question
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_6
+  # sleep_question_7:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: sleep_question
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_7
+  # sleep_question_8:
+  #   type: categorical
+  #   values:
+  #     - Never
+  #     - Sometimes
+  #     - Often
+  #     - Very Often
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_entity
+  #       entity: sleep_question
+  #       conditions:
+  #       - active_loop: sleep_questionnaire
+  #         requested_slot: sleep_question_8
+  # sleep:
+  #   type: float
+  #   min_value: 0
+  #   max_value: 24
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_text
+  #       conditions:
+  #       - active_loop: wellness_check
+  #         requested_slot: sleep
+  # water:
+  #   type: bool
+  #   influence_conversation: true
+  #   mappings:
+  #     - type: from_intent
+  #       intent: affirm
+  #       value: true
+  #       conditions:
+  #       - active_loop: wellness_check
+  #         requested_slot: water
+  #     - type: from_intent
+  #       intent: deny
+  #       value: false
+  #       conditions:
+  #       - active_loop: wellness_check
+  #         requested_slot: water
+  # stress:
+  #   type: categorical
+  #   values:
+  #   - low
+  #   - medium
+  #   - high
+  #   influence_conversation: true
+  #   mappings: 
+  #     type: from_entity
+  #     entity: stress_level
+  #     conditions:
+  #     - active_loop: wellness_check
+  #       requested_slot: stress
+  # exercise:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #     type: from_text
+  #     conditions:
+  #     - active_loop: wellness_check
+  #       requested_slot: exercise
+  # goals:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #     type: from_text
+  #     conditions:
+  #     - active_loop: wellness_check
+  #       requested_slot: goals
+  # percieved_stress:
+  #   type: any
+  #   influence_conversation: true
+  #   mappings:
+  #     type: from_text
+      
+  # sleep_score:
+  #   type: any
+  #   influence_conversation: true
+  #   mappings:
+  #     type: custom
+
+    
+responses:
+  utter_ask_first_name:
+  - text: What is your first name?
+  utter_ask_last_name:
+  - text: What is your last name?
+  # utter_ask_user_age:
+  #  - text: "What is your age?"
+  utter_new_user_submit:
+  - text: Thank you for using PRISM!
+  utter_health_info_submit:
+  - text: Thanks for telling me about yourself.
+  utter_sleep_form_submit:
+  - text: Thanks for telling me about your sleep quality.
+  utter_wellness_check_submit:
+  - text: Okay, Thanks. Time to begin another day!
+  utter_name_values:
+  - text: I will remember that your name is {first_name} {last_name}! What would you like to do now?
+
+  # utter_user_admin:
+  # - buttons:
+  #   - payload: '/admin'
+  #     title: "New"
+  #   - payload: '/user'
+  #     title: "Returning"
+  #   text: "Welcome to PRISM! Are you a new or returning user?"
+
+  utter_health_information:
+  - buttons:
+    - payload: '/affirm'
+      title: "yes"
+    - payload: '/deny'
+      title: "No"
+    text: "Would you like to answer some general health questions?"
+  
+  utter_ask_previous_conditions:
+  - text: "Do you have any pre-existing physical health conditions? (ex. asthma, celiac, etc.)"
+
+  utter_ask_confirm_exercise:
+  - text: "Do you exercise regularly? Don't worry if you don't go to the gym, walking counts too!"
+
+  utter_ask_stress_question_01:
+  - text: "In the last month, how often have you felt that you were unable to control the important things in your life? (Never, Almost Never, Sometimes, Fairly Often, Very Often)"
+  
+  utter_ask_stress_question_02:
+  - text: "In the last month, how often have you felt confident about your ability to handle your personal problems? (Never, Almost Never, Sometimes, Fairly Often, Very Often)"
+  
+  utter_ask_stress_question_03:
+  - text: "In the last month, how often have you felt that things were going your way? (Never, Almost Never, Sometimes, Fairly Often, Very Often)"
+
+  utter_ask_stress_question_04:
+  - text: "In the last month, how often have you felt difficulties were piling up so high that you could not overcome them? (Never, Almost Never, Sometimes, Fairly Often, Very Often)"
+
+  utter_sleep_form:
+  - buttons:
+    - payload: '/affirm'
+      title: "yes"
+    - payload: '/deny'
+      title: "No"
+    text: "Would you like to take answer a few questions about your sleep quality?"
+
+  utter_sleep_explain:
+  - text: "The following questions ask about the sleep habits during the past month only. Your answers should indicate the most accurate reply for the majority of days and nights in the past month."
+ 
+  utter_ask_sleep_question_1:
+  - text: "How would you rate your sleep quality overall? (Very good, Fairly Good, Fairly Bad, Very Bad)"
+
+  utter_ask_sleep_question_2:
+  - text: "How often had you had trouble going to sleep because you cannot sleep within 30 minutes? (Never, Sometimes, Often, Very often)"
+
+  utter_ask_sleep_question_3:
+  - text: "How many hours of sleep fo you get at night, on average?"
+
+  utter_ask_sleep_question_4:
+  - text: "How many hours were you in bed per day?"
+
+  utter_ask_sleep_question_5:
+  - text: "How often had you had trouble sleeping due to other factors, such as feeling too hot or cold, hacing bad dreams, being unable to reathe, or needing to use the bathroom? (Never, Sometimes, Often, Very Often)"
+  
+  utter_ask_sleep_question_6:
+  - text: "How often have you taken medicine (prescribed or over the counter) to help you sleep? (Never, Sometimes, Often, Very Often)"
+
+  utter_ask_sleep_question_7:
+  - text: "How often have you had trouble staying awake while engaging in social activies or keep enthusiasm to get things done? (Never, Sometimes, Often, Very Often)"
+
+  utter_wellness_check:
+  - buttons:
+    - payload: '/affirm'
+      title: "yes"
+    - payload: '/deny'
+      title: "No"
+    text: "It's time for your daily wellness check! Would you like to answer a few questions?"
+
+  utter_ask_sleep:
+  - text: "How much sleep did you get last night?"
+
+  utter_ask_water:
+  - text: "Yesterday, did you consume the recommented amount of water? (2.7 Liters for women and 3.7 Liters for men)"
+  
+  utter_ask_stress:
+  - text: "What is your stress level right now? (High, medium, low)"
+
+  utter_ask_exercise:
+  - text: "What type of exercise do you plan to do today? It can be a quick workout to get your blood moving! Have you tried biking?"
+
+  utter_ask_goals:
+  - text: "Setting one small goal a day can help to focus your day! What will your goal for today be? It can be anything you like!"
+
+  #  utter_ask_stress:
+  #  - buttons:
+  #    - payload: '/inform{"stress_level":"low"}'
+  #      title: "Low"
+  #    - payload: '/inform{"stress_level":"medium"}'
+  #      title: "Medium"
+  #    - payload: '/inform{"stress_level":"high"}'
+  #      title: "High"
+  #    text: "What is your stress level right now?"
+
+  utter_greet:
+  - text: "Hey, my name is PRISM. How can I help you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  # utter_welcome:
+  # - text: "Welcome back, {first_name}."
+
+  # utter_new_user_values:
+  # - text: "New User: {first_name}, {user_age}"
+  utter_health_info:
+  - text: "You've submitted the following:\n
+            - Previous Conditions: {previous_conditions}\n
+            - Exercises Regularly: {confirm_exercise}\n
+            - Stress Question 1: {stress_question_01}\n
+            - Stress Question 2: {stress_question_02}\n
+            - Stress Question 3: {stress_question_03}\n
+            - Stress Question 4: {stress_question_04}\n
+            What would you like to do now?"
+  
+  utter_sleep_info:
+  - text: "You've submitted the following:\n
+            - 1: {sleep_question_1}\n
+            - 2: {sleep_question_2}\n
+            - 3: {sleep_question_3}\n
+            - 4: {sleep_question_4}\n
+            - 5: {sleep_question_5}\n
+            - 6: {sleep_question_6}\n
+            - 7: {sleep_question_7}
+            What would you like to do now?"
+  
+  utter_wellness_check_values:
+  - text: "Here are the values that you submitted:\n
+            - Sleep: {sleep}\n
+            - Water: {water}\n
+            - Stress: {stress}\n
+            - Exercise: {exercise}\n
+            - Goals: {goals}
+            What would you like to do now?"
+
+  # utter_health_info:
+  # - text: "Thank you for telling me about yourself. You've submitted the following:\n
+  #           - Previous Conditions: {previous_conditions}\n
+  #           - Exercises Regularly: {confirm_exercise}\n
+  #           - Percieved Stress: {percieved_stress}\n"
+  
+  # utter_sleep_info:
+  # - text: "Thank you for telling me about your sleep quality. Your sleep score was {sleep_score}."
+
+  # utter_wellness_check_values:
+  # - text: "Time to begin another day! Here are the values that you submitted:\n
+  #           - Sleep: {sleep}\n
+  #           - Water: {water}\n
+  #           - Stress: {stress}\n
+  #           - Exercise: {excercise}\n
+  #           - Goals: {goals}"
+
+actions:
+# - action_stress_score
+# - action_sleep_score
+# - action_hello_world
+- utter_greet
+- utter_name_values
+- utter_happy
+- utter_cheer_up
+- utter_did_that_help
+- utter_goodbye
+- utter_iamabot
+- utter_wellness_check
+- utter_sleep_form
+- utter_sleep_explain
+- utter_health_information
+- utter_wellness_check_values
+- utter_sleep_info
+- utter_health_info
+- utter_new_user_submit
+- utter_health_info_submit
+- utter_sleep_form_submit
+- utter_wellness_check_submit
+# - validate_name_form
+# - validate_health_info
+# - validate_sleep_questionnaire
+# - validate_wellness_check
+
+forms:
+  name_form:
+    required_slots:
+    - first_name
+    - last_name
+    # - user_age
+
+  health_info:
+    required_slots:
+    - previous_conditions #Do you have any pre-existing physical health condidions? (ex. asthma, celiacs, etc.)
+    - confirm_exercise #Do you excercise regularly? Don't worry if you don't go to the gym, walking counts too!
+    - stress_question_01 #In the last month, how often have you felt that you were unable to control the importnt things in your life
+    - stress_question_02 #In the last month, how often have you felt confident about your ability to handle your personal problems
+    - stress_question_03 #In the last month, how often have you felt that things were going your way?
+    - stress_question_04 #In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?
+
+  sleep_questionnaire:
+    required_slots:
+    - sleep_question_1 #during the past month, how wouldy you rate your sleep quality overall?
+    - sleep_question_2 #during the past month, how often  have you had trouble going to sleep because you cannot get to sleep within 30 minutes
+    - sleep_question_3 #during the past month, how many hours of sleep do you get at night, on average.
+    - sleep_question_4 #during the past month, how many hours were you in bed?
+    - sleep_question_5 #during the past month, how often had you had trouble sleeping due to other factors (ex: feel too cold, too hot, had bad dreams, unable to breathe, bathroom)
+    - sleep_question_6 #during the past month, how often have you taken medicine (prescribed or over the counter) to help you sleep?
+    - sleep_question_7 #during the past month, how often have you had trouble staying awake while engaging in social activity or keep enthusiasm to get things done?
+  
+  wellness_check:
+    required_slots:
+    - sleep #How much sleep did you get last night?
+    - water #Yesterday, did you consume the recommended amount of water - 2.7 Liters for men and 3.7 Liters for women
+    - stress #What is your stress level right now?
+    - exercise #What kind of exercise do you plan to do today? - Remember, anything that intentionally gets your body moving is excercise!  
+    - goals #Remember - setting one goal a day, no matter how small, will help you to focus throughout the day. What is your goal for today?
+  
+#e2e_actions: []

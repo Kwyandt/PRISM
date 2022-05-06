@@ -1,0 +1,275 @@
+version: "3.1"
+
+nlu:
+- intent: request_names
+  examples: |
+    - i want to give you my name
+    - give name
+    - you need to know my name
+    - do you know my name?
+    - new user
+    - new person
+    - new
+
+- intent: daily_wellness
+  examples: |
+    - daily
+    - everyday
+    - wellness
+    - check-in
+    - morining
+    - start morning routibe
+    - begin wellness check
+- intent: health_form
+  examples: |
+    - health information
+    - health
+    - health update
+    - new health
+    - healthy condition
+- intent: sleep_quality
+  examples: |
+    - sleep quality 
+    - sleep form
+    - sleep information
+    - sleep questionnaire
+    - sleep questions
+# - intent: admin
+#   examples: |
+#     - new user
+#     - new
+#     - create new user
+#     - administrate
+#     - admin
+#     - new uers
+#     - neo
+#     - niew
+#     - new name
+#     - give name
+#     - hello, my name is dave 
+#     - name
+
+# - intent: user
+#   examples: |
+#     - returning user
+#     - not new
+#     - repeated user
+#     - user
+#     - uder
+
+# - intent: stress_frequency
+#   examples: |
+#     - [absolutely not]{"stress_question":"Never"}
+#     - [none]{"stress_question":"Never"}
+#     - [never]{"stress_question":"Never"}
+#     - [not once]{"stress_question":"Never"}
+#     - [not ever]{"stress_question":"Never"}
+#     - [never before]{"stress_question":"Never"}
+#     - [I haven't ever]{"stress_question":"Never"}
+#     - [neger]{"stress_question":"Never"}
+#     - [nonw]{"stress_question":"Never"}
+#     - [nope]{"stress_question":"Never"}
+#     - [almost never]{"stress_question":"Almost Never"}
+#     - [not frequently]{"stress_question":"Almost Never"}
+#     - [not usually]{"stress_question":"Almost Never"}
+#     - [only one time]{"stress_question":"Almost Never"}
+#     - only [once]{"stress_question":"Almost Never"}
+#     - [maybe once]{"stress_question":"Almost Never"}
+#     - [not recently]{"stress_question":"Almost Never"}
+#     - [not in the past month]{"stress_question":"Almost Never"}
+#     - [not very often]{"stress_question":"Almost Never"}
+#     - [occassionally]{"stress_question":"Sometimes"}
+#     - [a few times]{"stress_question":"Sometimes"}
+#     - [maybe once or twice]{"stress_question":"Sometimes"}
+#     - [sometimes]{"stress_question":"Sometimes"}
+#     - on special [occasions]{"stress_question":"Sometimes"}
+#     - [not often]{"stress_question":"Sometimes"}
+#     - [not never]{"stress_question":"Sometimes"}
+#     - maybe [a few]{"stress_question":"Sometimes"}
+#     - [a few]{"stress_question":"Sometimes"}
+#     - [semi-frequently]{"stress_question":"Often"}
+#     - [often]{"stress_question":"Often"}
+#     - [pretty often]{"stress_question":"Often"}
+#     - [more than a few times]{"stress_question":"Often"}
+#     - [more frequent]{"stress_question":"Often"}than not
+#     - [more than usual]{"stress_question":"Often"} recently
+#     - [all the time]{"sleep_question":"Very Often"}
+#     - [always]{"sleep_question":"Very Often"}
+#     - [a lot]{"sleep_question":"Very Often"}
+#     - [very often]{"sleep_question":"Very Often"}
+#     - [very frequently]{"sleep_question":"Very Often"}
+#     - [more than few]{"sleep_question":"Very Often"}
+#     - [every night]{"sleep_question":"Very Often"}
+#     - [multiple times]{"sleep_question":"Very Often"} a night
+#     - [multiple times]{"sleep_question":"Very Often"} a week
+#     - yeah [a lot]{"sleep_question":"Very Often"}
+
+# - intent: sleep_frequency
+#   examples: |
+#     - [awesome]{"sleep_question":"Very Good"}
+#     - [amazing]{"sleep_question":"Very Good"}
+#     - [supr]{"sleep_question":"Very Good"}
+#     - [super]{"sleep_question":"Very Good"}
+#     - [very good]{"sleep_question":"Very Good"}
+#     - [fantastic]{"sleep_question":"Very Good"}
+#     - [amaign]{"sleep_question":"Very Good"}
+#     - [absolutely not]{"sleep_question":"Never"}
+#     - [none]{"slee[_question":"Never"}
+#     - [never]{"sleep_question":"Never"}
+#     - [not once]{"sleep_question":"Never"}
+#     - [not ever]{"sleep_question":"Never"}
+#     - [never before]{"sleep_question":"Never"}
+#     - [I haven't ever]{"sleep_question":"Never"}
+#     - [neger]{"sleep_question":"Never"}
+#     - [nonw]{"sleep_question":"Never"}
+#     - [nope]{"sleep_question":"Never"}
+#     - [fairly good]{"sleep_question":"Good"}
+#     - [good]{"sleep_question":"Good"}
+#     - [okay]{"sleep_question":"Good"}
+#     - [fairily good]{"sleep_question":"Good"}
+#     - [decent]{"sleep_question":"Good"}
+#     - [not bad]{"sleep_question":"Good"}
+#     - [occassionally]{"sleep_question":"Sometimes"}
+#     - [a few times]{"sleep_question":"Sometimes"}
+#     - [maybe once or twice]{"sleep_question":"Sometimes"}
+#     - [sometimes]{"sleep_question":"Sometimes"}
+#     - on special [occasions]{"sleep_question":"Sometimes"}
+#     - [not often]{"sleep_question":"Sometimes"}
+#     - [not never]{"sleep_question":"Sometimes"}
+#     - maybe [a few]{"sleep_question":"Sometimes"}
+#     - [a few]{"sleep_question":"Sometimes"}
+#     - [fairly bad]{"sleep_question":"Fairly Bad"}
+#     - [bad]{"sleep_question":"Fairly Bad"}
+#     - [not great]{"sleep_question":"Fairly Bad"}
+#     - [fairly ad]{"sleep_question":"Fairly Bad"}
+#     - [fine]{"sleep_question":"Fairly Bad"}
+#     - [meh]{"sleep_question":"Fairly Bad"}
+#     - [semi-frequently]{"sleep_question":"Often"}
+#     - [often]{"sleep_question":"Often"}
+#     - [pretty often]{"sleep_question":"Often"}
+#     - [more than a few times]{"sleep_question":"Often"}
+#     - [more frequent]{"sleep_question":"Often"}than not
+#     - [more than usual]{"sleep_question":"Often"} recently
+#     - [awful]{"sleep_question":"Very Bad"}
+#     - [horrendous]{"sleep_question":"Very Bad"}
+#     - [terrible]{"sleep_question":"Very Bad"}
+#     - [not good]{"sleep_question":"Very Bad"}
+#     - [very bad]{"sleep_question":"Very Bad"}
+#     - [all the time]{"sleep_question":"Very Often"}
+#     - [always]{"sleep_question":"Very Often"}
+#     - [a lot]{"sleep_question":"Very Often"}
+#     - [very often]{"sleep_question":"Very Often"}
+#     - [very frequently]{"sleep_question":"Very Often"}
+#     - [more than few]{"sleep_question":"Very Often"}
+#     - [every night]{"sleep_question":"Very Often"}
+#     - [multiple times]{"sleep_question":"Very Often"} a night
+#     - [multiple times]{"sleep_question":"Very Often"} a week
+#     - yeah [a lot]{"sleep_question":"Very Often"}
+
+# - intent: inform
+#   examples: |
+#     - low{"stress_level":"low"}
+#     - not very stressed {"stress_level":"low"}
+#     - not at all {"stress_level":"low"}
+#     - care free {"stress_level":"low"}
+#     - relaxes {"stress_level":"low"}
+#     - loe {"stress_level":"low"}
+#     - kind of stressed {"stress_level":"medium"}
+#     - kinda high {"stress_level":"medium"}
+#     - medium{"stress_level":"medium"}
+#     - average{"stress_level":"medium"}
+#     - meh{"stress_level":"medium"}
+#     - high{"stress_level":"high"}
+#     - super high{"stress_level":"high"}
+#     - very stressed{"stress_level":"high"}
+#     - maximum stress{"stress_level":"high"}
+#     - very very stressed{"stress_level":"high"}
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

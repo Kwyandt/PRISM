@@ -1,0 +1,187 @@
+version: "3.1"
+
+stories:
+
+# - story: introduce new user
+#   steps:
+#   - intent: greet
+#   - action: utter_user_admin
+#   - intent: admin
+#   - action: new_user
+#   - active_loop: new_user
+
+# - story: introduce returning user
+#   steps:
+#   - intent: greet
+#   - action: utter_user_admin
+#   - intent: user
+#   - action: utter_welcome
+#   # - action: utter_wellness_check
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: request_names
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: vincent
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: vincent-mcvincent
+  # - slot_was_set:
+  #   - requested_slot: user_age
+  # - slot_was_set:
+  #   - user_age: 25
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_new_user_submit
+  - action: utter_name_values
+
+- story: health info
+  steps:
+  - intent: health_form
+  - action: utter_health_information
+  - intent: affirm
+  - action: health_info
+  - active_loop: health_info
+  - slot_was_set:
+    - requested_slot: previous_conditions
+  - slot_was_set:
+    - previous_conditions: Asthma
+  - slot_was_set:
+    - requested_slot: confirm_exercise
+  - slot_was_set:
+    - confirm_exercise: yes
+  - slot_was_set:
+    - requested_slot: stress_question_01
+  - slot_was_set:
+    - stress_question_01: Never
+  - slot_was_set: 
+    - requested_slot: stress_question_02
+  - slot_was_set:
+    - stress_question_02: Sometimes
+  - slot_was_set:
+    - requested_slot: stress_question_03
+  - slot_was_set:
+    - stress_question_03: Often
+  - slot_was_set:
+    - requested_slot: stress_question_04
+  - slot_was_set:
+    - stress_question_04: Almost Never
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_health_info_submit
+  - action: utter_health_info
+
+- story: sleep questionnaire
+  steps:
+  - intent: sleep_quality
+  - action: utter_sleep_form
+  - intent: affirm
+  - action: utter_sleep_explain
+  - action: sleep_questionnaire
+  - active_loop: sleep_questionnaire
+  - slot_was_set:
+    - requested_slot: sleep_question_1
+  - slot_was_set:
+    - sleep_question_1: very good
+  - slot_was_set:
+    - requested_slot: sleep_question_2
+  - slot_was_set:
+    - sleep_question_2: never
+  - slot_was_set:
+    - requested_slot: sleep_question_3
+  - slot_was_set:
+    - sleep_question_3: very often
+  - slot_was_set:
+    - requested_slot: sleep_question_4
+  - slot_was_set:
+    - sleep_question_4: sometimes
+  - slot_was_set:
+    - requested_slot: sleep_question_5
+  - slot_was_set:
+    - sleep_question_5: fairly often
+  - slot_was_set:
+    - requested_slot: sleep_question_6
+  - slot_was_set:
+    - sleep_question_6: never
+  - slot_was_set:
+    - requested_slot: sleep_question_7
+  - slot_was_set:
+    - sleep_question_7: often
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_sleep_form_submit
+  - action: utter_sleep_info
+  
+- story: daily usage
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: daily_wellness
+  - action: utter_wellness_check
+  - intent: affirm
+  - action: wellness_check
+  - active_loop: wellnesss_check
+  - slot_was_set:
+    - requested_slot: sleep
+  - slot_was_set:
+    - sleep: 7 hours
+  - slot_was_set:
+    - requested_slot: water
+  - slot_was_set:
+    - water: no
+  - slot_was_set:
+    - requested_slot: stress
+  - slot_was_set:
+    - stress: medium
+  - slot_was_set:
+    - requested_slot: exercise
+  - slot_was_set:
+    - exercise: New yoga youtube video
+  - slot_was_set:
+    - requested_slot: goals
+  - slot_was_set:
+    - goals: Give 10 people a compliment today :)
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_wellness_check_submit
+  - action: utter_wellness_check_values
+  - intent: affirm
+
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
